@@ -37,7 +37,7 @@ jobs:
           APPLEID: ${{ secrets.APPLEID }}
           APPLEIDPASS: ${{ secrets.APPLEIDPASS }}
           NEXT_TELEMETRY_DISABLED: 1
-        run: npm run release
+        run: npm ci && npm run release
 
       - name: Add to github release
         uses: softprops/action-gh-release@v1
