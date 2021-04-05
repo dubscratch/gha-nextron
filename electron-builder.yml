@@ -10,7 +10,7 @@ files:
       - package.json
       - app
 mac:
-  icon: "dist"
+  icon: "build"
   target:
     - "zip"
     - "dmg"

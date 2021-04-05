@@ -32,6 +32,7 @@ jobs:
         env:
           APPLEID: ${{ secrets.APPLEID }}
           APPLEIDPASS: ${{ secrets.APPLEIDPASS }}
+          NEXT_TELEMETRY_DISABLED: 1
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
