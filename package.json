@@ -2,7 +2,7 @@
   "private": true,
   "name": "cloudev",
   "description": "My application description",
-  "version": "2104.1.0",
+  "version": "2104.2.0",
   "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
   "main": "app/background.js",
   "scripts": {
