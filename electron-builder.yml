@@ -1,12 +1,22 @@
-appId: com.example.nextron
-productName: My Nextron App
-copyright: Copyright © 2018 Yoshihide Shiono
+appId: to.dub.ghanextron
+productName: Nextron Demo
+copyright: Copyright probably
 directories:
   output: dist
-  buildResources: resources
+  buildResources: build
 files:
   - from: .
     filter:
       - package.json
       - app
-publish: null
+mac:
+  icon: "dist"
+  target:
+    - "zip"
+    - "dmg"
+  category: "your.app.category.type"
+  hardenedRuntime: true
+  entitlements: "build/entitlements.mac.plist"
+  entitlementsInherit: "build/entitlements.mac.plist"
+  gatekeeperAssess: "false"
+afterSign: "build/notarize.js"
