@@ -8,7 +8,10 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest]
+        include:
+          - os: macos-latest
+            artifact_name: dist/mac/NextronDemo.app
+            asset_name: nextrondemo-macos-amd64
 
     steps:
       - name: Check out Git repository
@@ -26,7 +29,7 @@ jobs:
         env:
           CERTIFICATE_OSX_APPLICATION: ${{ secrets.CERTIFICATE_OSX_APPLICATION }}
           CERTIFICATE_PASSWORD: ${{ secrets.CERTIFICATE_PASSWORD }}
-      
+
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1
         env:
@@ -41,3 +44,13 @@ jobs:
           # If the commit is tagged with a version (e.g. "v1.0.0"),
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+
+      - name: Add to github release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files:
+          - dist/NextronDemo-0.0.9.dmg
+          - dist/mac/NextronDemo.app
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
