@@ -9,6 +9,7 @@
     "dev": "nextron",
     "build": "nextron build",
     "postinstall": "electron-builder install-app-deps",
+    "bump": "if [[ $(jq -r '.[version]' < ./package.json | cut -f 1 -d.) -eq $(($(date +%Y%m) - 200000)) ]]; then echo npm version minor; else npm version $(($(date +%Y%m) - 200000)).0.0; fi",
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
