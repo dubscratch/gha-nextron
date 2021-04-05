@@ -9,6 +9,7 @@
     "dev": "nextron",
     "build": "nextron build",
     "postinstall": "electron-builder install-app-deps",
+    "release": "nextron build",
     "bump": "MAJOR=$(($(date +%Y%m) - 200000)); [[ $(jq -r '.[\"version\"]' < ./package.json | cut -f 1 -d.) -eq ${MAJOR} ]] && npm version minor || npm version ${MAJOR}.0.0",
     "postversion": "git push && git push --tags"
   },
