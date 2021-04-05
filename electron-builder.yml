@@ -1,5 +1,5 @@
 appId: to.dub.ghanextron
-productName: Nextron Demo
+productName: NextronDemo
 copyright: Copyright probably
 directories:
   output: dist
