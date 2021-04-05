@@ -12,6 +12,7 @@ exports.default = async function notarizing(context) {
 
   const appName = context.packager.appInfo.productFilename;
 
+  console.log("Notarize");
   return await notarize({
     appBundleId: 'to.dub.ghanextron',
     appPath: `${appOutDir}/${appName}.app`,
